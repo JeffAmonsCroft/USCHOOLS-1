@@ -1,0 +1,168 @@
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uschools-login</title>
+    <style>
+        body{
+            background-color: grey;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            padding: 0px;
+            margin: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        header {
+            background-color: aqua;
+            padding: 0px;
+            margin: 0px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: whitesmoke;
+        }
+        header h1 {
+            margin-left: 10px;
+        }
+        .header-right{
+            margin-right: 10%;
+        }
+
+        .signup_btn{
+           background-color: rgb(27, 27, 225);
+           margin-right: 50%;
+           color: white;
+           border-radius: 8px; 
+           border: none; 
+           width: 80px;  
+           height: 30px;   
+           cursor: pointer; 
+           transition: .3s all;
+        }
+        .signup_btn:hover{
+            background-color: blue;
+            transform: translateX(5px);
+        }
+
+        .login-box{
+           position: relative;
+           top: 100px;
+           width: 700px;
+           height: 500px;
+           border-radius: 10px;
+           box-shadow: 10px;
+           padding: 10px;
+           box-shadow: 2px 3px 4px 3px rgb(229, 243, 168);
+           text-align: center;
+           background-color: wheat;
+        }
+        
+        .login-contents{
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-contents label{
+            padding: 20px;
+            
+        }
+        .login-contents input{
+            padding: 10px; 
+            border-radius: 10px;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40%;
+            text-align: center;
+        }
+        .btn{
+            padding: 20px;
+            width: 500px;
+            
+        }
+        .btn #submit-btn {
+            width: 80%;
+            height: 40px;
+            color: white;
+            border: none;
+            background-color: rgb(20, 87, 20);
+            border-radius: 10px;
+            transition: .3s all;
+        }
+        .btn #submit-btn:hover{
+            background-color: green;
+            transform: translateY(5px);
+        }
+
+        .login-box button:hover {
+            background-color: lightblue;
+            cursor: pointer;
+        }
+        .message-body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+        .message{
+            color: red;
+            background-color: rgb(225, 245, 245);
+            width: 300px;
+            height: 30px;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Uschools</h1>
+        <div class="header-right">
+        <a href="{% url 'signup' %}"><button class="signup_btn">Sign Up</button></a>
+        </div>
+    </header>
+
+<div class="login-box">
+    <form method="POST">
+        {% csrf_token %}
+
+        <h2>Log In</h2>
+        <div class="login-contents">
+            <label for="username">Name:</label>
+            <input type="text" name="username" placeholder="username" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" placeholder="password" required>
+            <div class="btn">
+                <button id="submit-btn" type="submit">Login</button>
+            </div>
+            <p>Forgot password? <a href="{% url 'password_reset' %}">Reset</a></p>
+
+        </div>
+
+        <div class="message-body">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="message">
+        {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        </div>
+        
+    </form>
+</div>
+    {% endblock content %}
+
+</body>
+</html>
