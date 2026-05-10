@@ -24,7 +24,9 @@ SECRET_KEY = "django-insecure-0-*8ukm+p(uxzzh)_n8u+o5t_^42kv#rknpdkxy$9%966f&v8a
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://uschools-1-1.onrender.com',
+]
 ALLOWED_HOSTS = ['uschools-1-1.onrender.com']
 
 
