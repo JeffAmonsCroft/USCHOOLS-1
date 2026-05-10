@@ -128,12 +128,21 @@ LOGOUT_REDIRECT_URL = 'login'
 # DEFAULT_FROM_EMAIL = "amonsekate@gmail.com"
 
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.sendgrid.net"
-EMAIL_PORT = 587
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST = "smtp.sendgrid.net"
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+
+# EMAIL_HOST_USER = "apikey"
+# EMAIL_HOST_PASSWORD = "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"
+
+# DEFAULT_FROM_EMAIL = "amonsekate@gmail.com"
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'jeffamonscroft@gmail.com'#sender's email-id
+EMAIL_HOST_PASSWORD = 'rsjyekxuitwcjarx'#password associated with above email-id (not the regular password)
 
-EMAIL_HOST_USER = "apikey"
-EMAIL_HOST_PASSWORD = "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"
 
-DEFAULT_FROM_EMAIL = "amonsekate@gmail.com"
