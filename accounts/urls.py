@@ -5,7 +5,7 @@ from . import views
 urlpatterns = [
     path('accounts/signup/', views.signup_view, name='signup'),
     path('accounts/login/', views.login_view, name='login'),
-    path('', views.homepage_view, name='home'),
+    path('uschools-home', views.homepage_view, name='home'),
     path('logout/', views.logout_view, name='logout'),
     path('password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
