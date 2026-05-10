@@ -23,7 +23,7 @@ def signup_view(request):
     return render(request, 'signup.html')
 
 def homepage_view(request):
-    return render(request, 'home.html')
+    return render(request, 'signup.html')
 
 def login_view(request):
     if request.method == 'POST':
